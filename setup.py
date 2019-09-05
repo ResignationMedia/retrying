@@ -3,6 +3,8 @@
 import os
 import sys
 
+package_name = 'retrying'
+
 try:
     from setuptools import setup
 except ImportError:
