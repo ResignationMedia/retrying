@@ -49,7 +49,7 @@ can_build() {
     fi
 
     # Check if we have setuptools installed
-    rpm -q python36-setuptools --quiet
+    rpm -q python36-setuptools --quiet || rpm -q python3-setuptools
     if [[ $? != 0 ]]
     then
         echo "The python-setuptools rpm package must be installed."
@@ -90,10 +90,10 @@ then
 fi
 
 # Clean any previous builds
-python36 setup.py clean
+python3.6 setup.py clean
 
 # Build the source distribution
-python36 setup.py sdist
+python3.6 setup.py sdist
 
 # Look for the compiled source
 ls dist/${PACKAGE_NAME}*.tar.gz 2>&1 > /dev/null
